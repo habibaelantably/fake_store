@@ -23,11 +23,11 @@ class ProductCard extends StatelessWidget
         Navigator.pushNamed(context,
             AppRouterNames.productDetailsScreen,
             arguments: {
-          "productId":productDataModel.data.map((e) => e.id),
-          "productTitle": productDataModel.data.map((e) => e.title),
-          "productImage":productDataModel.data.map((e) => e.image),
-          "productPrice": productDataModel.data.map((e) => e.price),
-          "productDescription": productDataModel.data.map((e) => e.description)
+          "productId":productDataModel.id,
+          "productTitle": productDataModel.title,
+          "productImage":productDataModel.image,
+          "productPrice": productDataModel.price,
+          "productDescription": productDataModel.description,
         });
       },
       child: Padding(
@@ -50,7 +50,7 @@ class ProductCard extends StatelessWidget
                           bottomLeft: Radius.circular(5.0.w),
                         ),
                         image:  DecorationImage(
-                          image:  NetworkImage(productDataModel.data.map((e) => e.image).toString()),
+                          image:  NetworkImage(productDataModel.image),
                           fit: BoxFit.fill,
                         )),
                   ),
@@ -61,31 +61,25 @@ class ProductCard extends StatelessWidget
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        RegularText(text: productDataModel.data.map((e) => e.title).toString(),color: AppColor.appDefaultColor,
+                        RegularText(text: productDataModel.title,color: AppColor.appDefaultColor,
                           fontSize: 12.sp,maxLines:1,overflow:TextOverflow.ellipsis,),
                         SizedBox(
                           height: 1.h,
                         ),
-                        RegularText(text: productDataModel.data.map((e) => e.price).toString(),color: AppColor.greyOfText,fontSize: 10.sp),
+                        RegularText(text: productDataModel.price.toString(),color: AppColor.greyOfText,fontSize: 10.sp),
                         SizedBox(height: 6.0.h,),
                         Row(
                           children: [
                             SizedBox(width: 45.0.w,),
-                            BlocConsumer<CartCubit,CartStates>(
-                              listener: (BuildContext context, state) {
-                                if (state is SaveCartToCacheState) {
-                                  print('Saved');
-                                 // showToast(msg: AppLocalizations.of(context)!.addCartItemSuccessToast, toastStatus: ToastStatus.success);
-                                }
-                              },
+                            BlocBuilder<CartCubit,CartStates>(
                               builder: (BuildContext context, Object? state) {
                                 return InkWell(
                                   onTap: (){
                                     CartCubit.get(context).addToCart(
-                                        productId: productDataModel.data[index].id,
-                                        productImage: productDataModel.data.map((e) => e.image).toString(),
-                                        productTitle: productDataModel.data.map((e) => e.title).toString(),
-                                        productPrice: productDataModel.data.map((e) => e.price),
+                                        productId: productDataModel.id,
+                                        productImage: productDataModel.image,
+                                        productTitle: productDataModel.title,
+                                        productPrice: productDataModel.price,
                                         context: context);
                                   },
                                   child: CircleAvatar(radius:2.h,backgroundColor:AppColor.appDefaultColor ,

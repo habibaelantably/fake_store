@@ -69,8 +69,6 @@ class LanguageItem extends StatelessWidget {
   }) {
     if (menuValue != language) {
       ChangeLanguageCubit.get(context).changeAppLanguage(appLanguageIsArabic: language == 'العربية' ? true : false, languageMenuValue: language);
-    } else {
-      //showToast(msg: AppLocalizations.of(context)!.changeLanguageFallbackToast, toastStatus: ToastStatus.error);
     }
     Navigator.pop(context);
   }

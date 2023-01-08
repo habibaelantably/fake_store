@@ -64,8 +64,7 @@ class HomeScreen extends StatelessWidget {
                                 .productsList
                                 .where((element) {
 
-                              return element.data.map((e) => e.title).contains(searchControllerText);
-                              //title.contains(searchControllerText);
+                              return element.title.contains(searchControllerText);
                             }).toList();
                             SearchCubit.get(context)
                                 .searchInItems(searchedList: searchedProduct);

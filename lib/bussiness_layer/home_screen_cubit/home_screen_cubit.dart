@@ -21,16 +21,17 @@ class HomeScreenCubit extends Cubit<HomeScreenStates> {
       url: getHomeProductsEndPoint,
       query: {},
     ).then((value) {
+      // Map<String,dynamic> formattedJson = {
+      //   "data" : value.data
+      // };
+      // ProductDataModel productDataModel = ProductDataModel.fromJson(formattedJson);
 
-      Map<String,dynamic> formattedJson = {
-        "data" : value.data
-      };
-      ProductDataModel productDataModel = ProductDataModel.fromJson(formattedJson);
-
-      // value.data.forEach((product) {
-      //   ProductDataModel productDataModel = ProductDataModel.fromJson(product);
-      //   productsList.add(productDataModel);
-      // });
+      //this forEach loop because the API was list not in form of key and value so I used foreach
+      //also I think it`s better to make it like the above code by making to my self akey and value
+      value.data.forEach((product) {
+        ProductDataModel productDataModel = ProductDataModel.fromJson(product);
+        productsList.add(productDataModel);
+      });
       emit(GetHomeDataSuccessState());
     }).catchError((e) {
       print(e.toString());
