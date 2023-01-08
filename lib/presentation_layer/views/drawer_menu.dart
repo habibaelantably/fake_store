@@ -1,4 +1,6 @@
 import 'package:fake_store/presentation_layer/constants/styles/colors.dart';
+import 'package:fake_store/presentation_layer/widgets/home_widgets/drawer_header.dart';
+import 'package:fake_store/presentation_layer/widgets/home_widgets/language_widget.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,15 +14,10 @@ class AppDrawer extends StatelessWidget {
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          // const LanguageItem(),
-          // SizedBox(
-          //   height: 18.h,
-          // ),
-          // const MyOrdersItem(),
-          // SizedBox(
-          //   height: 18.h,
-          // )
+        children: const [
+          DrawerHeaderWidget(),
+          LanguageItem(),
+
         ],
       ),
     );

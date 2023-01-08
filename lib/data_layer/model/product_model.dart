@@ -1,24 +1,21 @@
-class ProductDataModel
-{
+
+class ProductDataModel {
+  late final List<Data> data;
+  ProductDataModel.fromJson(Map<String, dynamic> json){
+    data = List.from(json['data']).map((e)=>Data.fromJson(e)).toList();
+  }
+}
+
+class Data {
   late int id;
   late String title;
   late double price;
   late String description;
   late String image;
-
-  ProductDataModel({
-    required this.id,
-    required this.title,
-    required this.price,
-    required this.description,
-    required this.image,
-  });
-
-  ProductDataModel.fromJson(Map<String,dynamic> json)
-  {
+  Data.fromJson(Map<String,dynamic> json){
     id=json['id'];
     title=json['title'];
-    price=json['price'];
+    price=json['price'].toDouble;
     description=json['description'];
     image=json['image'];
   }

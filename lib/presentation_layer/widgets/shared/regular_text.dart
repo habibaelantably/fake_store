@@ -44,6 +44,7 @@ class RegularText extends StatelessWidget {
         height: lineHeight,
       ),
       textAlign: textAlign,
+      maxLines: maxLines,
     );
   }
 }

@@ -1,12 +1,13 @@
+import 'package:fake_store/bussiness_layer/search_cubit/search_cubit.dart';
 import 'package:fake_store/presentation_layer/constants/styles/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({Key? key,}) : super(key: key);
-  // required this.itemsList, required this.onChanged,
-  // final List itemsList;
-  // final Function onChanged;
+  const SearchBar({Key? key, required this.itemsList, required this.onChanged,}) : super(key: key);
+  final List itemsList;
+  final Function onChanged;
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController = TextEditingController();
@@ -15,19 +16,19 @@ class SearchBar extends StatelessWidget {
       child: TextFormField(
         controller: searchController,
         onChanged: (value) {
-          // onChanged(value, searchController.text);
+           onChanged(value, searchController.text);
         },
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(vertical: 0.0),
             prefixIcon: const Icon(Icons.search,color:AppColor.white,),
-            suffixIcon: searchController.text.isNotEmpty ?IconButton(
+            suffixIcon: searchController.text !='' ?IconButton(
               icon: const Icon(Icons.cancel, color:AppColor.white,),
               onPressed:  () {
-                // searchController.clear();
-                // SearchCubit.get(context).searchInItems(searchedList: null);
+                 searchController.clear();
+                SearchCubit.get(context).searchInItems(searchedList: null);
               } ,
             ):const SizedBox(),
-            hintText: 'search',
+            hintText:AppLocalizations.of(context)!.search,
             hintStyle: const TextStyle(color: AppColor.white),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.w),

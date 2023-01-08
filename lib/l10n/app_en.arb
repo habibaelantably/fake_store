@@ -1,0 +1,68 @@
+{
+
+  "language": "Language",
+  "@language": {
+    "description": "LanguageText"
+  },
+
+  "settings": "Settings",
+  "@settings": {
+    "description": "settingsText"
+  },
+
+  "home": "Home",
+  "@home": {
+    "description": "homeText"
+  },
+
+  "cart": "Cart",
+  "@cart": {
+    "description": "CartText"
+  },
+
+  "thereIsNoItems": "There is no items",
+  "@thereIsNoItems": {
+    "description": "thereIsNoItemsText"
+  },
+
+  "total": "Total",
+  "@total": {
+    "description": "totalText"
+  },
+
+  "address": "Address",
+  "@address": {
+    "description": "addressText"
+  },
+
+  "checkout": "CheckOut",
+  "@checkout": {
+    "description": "checkoutText"
+  },
+
+  "payment": "Payment",
+  "@payment": {
+    "description": "paymentText"
+  },
+
+  "paymentMethod": "PaymentMethod",
+  "@paymentMethod": {
+    "description": "paymentMethodText"
+  },
+
+  "price": "Price",
+  "@price": {
+    "description": "priceText"
+  },
+
+  "description": "Description",
+  "@description": {
+    "description": "descriptionText"
+  },
+
+  "search": "Search",
+  "@search": {
+    "description": "searchText"
+  }
+
+}

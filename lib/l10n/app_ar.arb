@@ -1,0 +1,14 @@
+{
+  "home":"الصفحه الرئيسيه",
+  "search": "بحث",
+  "language":"اللغه",
+  "price":"السعر",
+  "description":"الوصف",
+  "thereIsNoItems":"لا توجد عناصر",
+  "settings":"الاعدادات",
+  "payment":"الدفع",
+  "paymentMethod":"طرق الدفع",
+  "address":"العنوان",
+  "checkout":"شاشة الدفع",
+  "total":"الاجمالى"
+}

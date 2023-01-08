@@ -1,10 +1,8 @@
-import 'package:fake_store/bussiness_layer/home_screen_cubit/home_screen_cubit.dart';
 import 'package:fake_store/presentation_layer/screens/cart_screen.dart';
 import 'package:fake_store/presentation_layer/screens/checkout_screen.dart';
 import 'package:fake_store/presentation_layer/screens/description_screen.dart';
 import 'package:fake_store/presentation_layer/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouterNames {
   static const cartScreen = '/cartScreen';
@@ -14,6 +12,7 @@ class AppRouterNames {
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
+
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
@@ -23,11 +22,22 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CartScreen(),
         );
-        case '/productDetailsScreen':
+      case '/productDetailsScreen':
         return MaterialPageRoute(
-          builder: (_) => const ProductDetailsScreen(),
+          builder: (_) =>  ProductDetailsScreen(
+            title: (settings.arguments
+          as Map<String, dynamic>)['productTitle'],
+            id: (settings.arguments
+            as Map<String, dynamic>)['productId'],
+            price: (settings.arguments
+            as Map<String, dynamic>)['productPrice'],
+            image: (settings.arguments
+            as Map<String, dynamic>)['productImage'],
+            description: (settings.arguments
+            as Map<String, dynamic>)['productDescription'],
+          ),
         );
-        case '/checkoutScreen':
+      case '/checkoutScreen':
         return MaterialPageRoute(
           builder: (_) =>  CheckoutScreen(),
         );
